@@ -6,7 +6,7 @@
 
 ![Challenge](https://custom-icon-badges.demolab.com/badge/Challenge-21%20Days-4169E1?style=for-the-badge&logo=calendar&logoColor=white)
 ![Status](https://custom-icon-badges.demolab.com/badge/Status-In%20Progress-success?style=for-the-badge&logo=rocket&logoColor=white)
-![Day](https://custom-icon-badges.demolab.com/badge/Day-2%2F21-orange?style=for-the-badge&logo=flame&logoColor=white)
+![Day](https://custom-icon-badges.demolab.com/badge/Day-3%2F21-orange?style=for-the-badge&logo=flame&logoColor=white)
 ![SQL](https://custom-icon-badges.demolab.com/badge/SQL-Database-blue?style=for-the-badge&logo=database&logoColor=white)
 
 <br>
@@ -58,57 +58,62 @@ I'm undertaking the **21-Days SQL Challenge** organized by [**Indian Data Club**
 
 ---
 
+## 📅 Daily Progress Tracker
 
----
-
-### 🔥 Day 1: SQL Fundamentals & Data Retrieval
-**📆 Date:** November 3, 2025  
+### 🔥 Day 3: Sorting Data with ORDER BY
+**📆 Date:** November 5, 2025  
 **⏱️ Time Invested:** 2 hours  
-**📂 File:** [Day1 SQL Challenge.sql](https://github.com/NihalMishra01/21-Days-SQL-Challenge/blob/main/Day1%20SQL%20Challenge.sql)
+**📂 File:** [Day3 SQL Challenge.sql](https://github.com/NihalMishra01/21-Days-SQL-Challenge/blob/main/Day3%20SQL%20Challenge.sql)
 
 #### 📚 Topics Learned
-✓ CREATE TABLE with constraints
-✓ Data types selection (VARCHAR, INT, DATE)
-✓ PRIMARY KEY implementation
-✓ SELECT statements (all columns, specific columns)
-✓ WHERE clause for filtering
-✓ DISTINCT for unique values
-✓ LIMIT for pagination
+✓ ORDER BY clause fundamentals
+✓ ASC (Ascending) sorting
+✓ DESC (Descending) sorting
+✓ Multiple column sorting
+✓ Combining ORDER BY with LIMIT
+✓ Sorting numeric and text data
+✓ Query result organization
 
+text
 
 #### 🏥 Practice Dataset: Hospital Management System
 
-**Tables Created:**
+**Tables Used:**
 1. **`patients`** - Patient demographics and service records
-   - Columns: patient_id, name, age, arrival_date, departure_date, service, satisfaction
 2. **`service_weekly`** - Weekly hospital service analytics
-   - Columns: week, month, service, available_beds, patients_request, patients_admitted, patients_refused, patient_satisfaction, staff_morale, event
+3. **`staff`** - Hospital staff information
 
-#### ✅ Problems Solved (7/7)
+#### ✅ Problems Solved (4/4)
 
 | # | Problem | Concept | Status |
 |---|---------|---------|--------|
-| Q1 | Retrieve all patient records | SELECT * | ✅ |
-| Q2 | Select specific columns | Column selection | ✅ |
-| Q3 | Display first 10 service records | LIMIT | ✅ |
-| Q4 | List unique hospital services | DISTINCT | ✅ |
-| Q5 | Filter patients above 40 years | WHERE with comparison | ✅ |
-| Q6 | Query emergency service patients | WHERE with equality | ✅ |
-| Q7 | Retrieve patients after date | WHERE with dates | ✅ |
+| Q1 | List all patients sorted by age descending | ORDER BY DESC | ✅ |
+| Q2 | Service data by week ASC & requests DESC | Multiple column sorting | ✅ |
+| Q3 | Display staff sorted alphabetically by name | ORDER BY ASC (text) | ✅ |
+| Q4 | Top 5 weeks with highest patient refusals | ORDER BY with LIMIT | ✅ |
 
 #### 💡 Key Takeaways
 
-> **"The foundation of great queries starts with understanding your data structure."**
+> **"ORDER BY transforms raw data into meaningful insights by organizing results logically."**
 
-- Proper table design prevents future headaches
-- Always specify columns instead of SELECT * in production
-- Date filtering is crucial for time-series analysis
-- DISTINCT can be performance-intensive on large datasets
+- ORDER BY defaults to ASC if not specified
+- Multiple column sorting applies in left-to-right priority
+- Combining ORDER BY with LIMIT extracts top/bottom records efficiently
+- Sorting text data uses alphabetical order (case-sensitive in some databases)
+- Performance impact increases with larger datasets - indexing helps
 
+#### 📸 Code Snippet
 
+-- Daily Challenge Question
+-- Top 5 weeks with highest patient refusals
+SELECT week, service, patients_refused, patients_request
+FROM service_weekly
+ORDER BY patients_refused DESC
+LIMIT 5;
+
+text
 
 ---
-## 📅 Daily Progress Tracker
 
 ### 🔥 Day 2: Advanced Filtering & Logical Operators
 **📆 Date:** November 4, 2025  
@@ -124,6 +129,7 @@ I'm undertaking the **21-Days SQL Challenge** organized by [**Indian Data Club**
 ✓ LIKE operator with wildcards (%)
 ✓ ORDER BY for sorting results
 
+text
 
 #### 🏥 Practice Dataset: Hospital Management System
 
@@ -161,6 +167,71 @@ I'm undertaking the **21-Days SQL Challenge** organized by [**Indian Data Club**
 - BETWEEN is inclusive of both boundary values
 - LIKE with '%' is powerful but can impact performance on large datasets
 
+#### 📸 Code Snippet
+
+-- Daily Challenge Question
+-- Find patients with name starting with 'A' and service not 'emergency'
+SELECT * FROM patients
+WHERE name LIKE 'A%' AND service != 'emergency';
+
+text
+
+---
+
+### 🔥 Day 1: SQL Fundamentals & Data Retrieval
+**📆 Date:** November 3, 2025  
+**⏱️ Time Invested:** 2 hours  
+**📂 File:** [Day1 SQL Challenge.sql](https://github.com/NihalMishra01/21-Days-SQL-Challenge/blob/main/Day1%20SQL%20Challenge.sql)
+
+#### 📚 Topics Learned
+✓ CREATE TABLE with constraints
+✓ Data types selection (VARCHAR, INT, DATE)
+✓ PRIMARY KEY implementation
+✓ SELECT statements (all columns, specific columns)
+✓ WHERE clause for filtering
+✓ DISTINCT for unique values
+✓ LIMIT for pagination
+
+text
+
+#### 🏥 Practice Dataset: Hospital Management System
+
+**Tables Created:**
+1. **`patients`** - Patient demographics and service records
+   - Columns: patient_id, name, age, arrival_date, departure_date, service, satisfaction
+2. **`service_weekly`** - Weekly hospital service analytics
+   - Columns: week, month, service, available_beds, patients_request, patients_admitted, patients_refused, patient_satisfaction, staff_morale, event
+
+#### ✅ Problems Solved (7/7)
+
+| # | Problem | Concept | Status |
+|---|---------|---------|--------|
+| Q1 | Retrieve all patient records | SELECT * | ✅ |
+| Q2 | Select specific columns | Column selection | ✅ |
+| Q3 | Display first 10 service records | LIMIT | ✅ |
+| Q4 | List unique hospital services | DISTINCT | ✅ |
+| Q5 | Filter patients above 40 years | WHERE with comparison | ✅ |
+| Q6 | Query emergency service patients | WHERE with equality | ✅ |
+| Q7 | Retrieve patients after date | WHERE with dates | ✅ |
+
+#### 💡 Key Takeaways
+
+> **"The foundation of great queries starts with understanding your data structure."**
+
+- Proper table design prevents future headaches
+- Always specify columns instead of SELECT * in production
+- Date filtering is crucial for time-series analysis
+- DISTINCT can be performance-intensive on large datasets
+
+#### 📸 Code Snippet
+
+-- Daily Challenge Question
+-- List all unique hospital services available in the hospital.
+SELECT DISTINCT(service) FROM service_weekly;
+
+text
+
+---
 
 ### 📊 Challenge Statistics
 
@@ -168,16 +239,16 @@ I'm undertaking the **21-Days SQL Challenge** organized by [**Indian Data Club**
 
 | Metric | Count |
 |--------|-------|
-| 📝 Days Completed | 2 / 21 |
-| ✅ Problems Solved | 16 |
-| 📁 Files Uploaded | 2 |
-| ⏱️ Total Hours | 4 |
-| 🔥 Streak | 2 days |
+| 📝 Days Completed | 3 / 21 |
+| ✅ Problems Solved | 20 |
+| 📁 Files Uploaded | 3 |
+| ⏱️ Total Hours | 6 |
+| 🔥 Streak | 3 days |
 
 **Progress Bar:**
-[██░░░░░░░░░░░░░░░░░░] 9.52% Complete
+[███░░░░░░░░░░░░░░░░░] 14.29% Complete
 
-
+text
 
 </div>
 
@@ -202,7 +273,8 @@ I'm undertaking the **21-Days SQL Challenge** organized by [**Indian Data Club**
 | 📄 README.md | Complete project documentation |
 | 📜 Day1 SQL Challenge.sql | Day 1 solutions and code |
 | 📜 Day2 SQL Challenge.sql | Day 2 solutions and code |
-| ... | Days 3-20 solutions |
+| 📜 Day3 SQL Challenge.sql | Day 3 solutions and code |
+| ... | Days 4-20 solutions |
 | 📜 Day21 SQL Challenge.sql | Final day challenge |
 | 📊 datasets/ | Practice datasets (CSV files) |
 
@@ -260,5 +332,6 @@ I'm documenting this journey publicly on LinkedIn! Follow along for:
 
 ![Visitor Count](https://visitor-badge.laobi.icu/badge?page_id=NihalMishra01.21-Days-SQL-Challenge)
 
+**Day 3 Complete ✅ | 18 More to Go! 🚀**
 
 </div>
