@@ -6,7 +6,7 @@
 
 ![Challenge](https://custom-icon-badges.demolab.com/badge/Challenge-21%20Days-4169E1?style=for-the-badge&logo=calendar&logoColor=white)
 ![Status](https://custom-icon-badges.demolab.com/badge/Status-In%20Progress-success?style=for-the-badge&logo=rocket&logoColor=white)
-![Day](https://custom-icon-badges.demolab.com/badge/Day-3%2F21-orange?style=for-the-badge&logo=flame&logoColor=white)
+![Day](https://custom-icon-badges.demolab.com/badge/Day-4%2F21-orange?style=for-the-badge&logo=flame&logoColor=white)
 ![SQL](https://custom-icon-badges.demolab.com/badge/SQL-Database-blue?style=for-the-badge&logo=database&logoColor=white)
 
 <br>
@@ -18,6 +18,7 @@
 [**🔥 View Challenge**](http://indiandataclub.com/) • [**💼 LinkedIn**](https://www.linkedin.com/in/nihalmishra01) • [**🐛 Report Bug**](https://github.com/NihalMishra01/21-Days-SQL-Challenge/issues)
 
 </div>
+
 
 ---
 
@@ -60,6 +61,56 @@ I'm undertaking the **21-Days SQL Challenge** organized by [**Indian Data Club**
 
 ## 📅 Daily Progress Tracker
 
+### 🔥 Day 4: Pagination with LIMIT & OFFSET
+**📆 Date:** November 6, 2025  
+**⏱️ Time Invested:** 2 hours  
+**📂 File:** [Day4 SQL Challenge.sql](https://github.com/NihalMishra01/21-Days-SQL-Challenge/blob/main/Day4%20SQL%20Challenge.sql)
+
+#### 📚 Topics Learned
+✓ LIMIT clause for result pagination
+✓ OFFSET clause for skipping rows
+✓ Combining LIMIT with ORDER BY
+✓ Pagination techniques for large datasets
+✓ Top N queries with LIMIT
+✓ MIN() aggregate function
+✓ Result set navigation
+
+text
+
+#### 🏥 Practice Dataset: Hospital Management System
+
+**Tables Used:**
+1. **`patients`** - Patient demographics and service records
+
+#### ✅ Problems Solved (13/13)
+
+| # | Problem | Concept | Status |
+|---|---------|---------|--------|
+| Q1 | Display first 5 patients | LIMIT | ✅ |
+| Q2 | Show patients 11-20 using OFFSET | LIMIT with OFFSET | ✅ |
+| Q3 | 10 most recent patient admissions | ORDER BY with LIMIT | ✅ |
+| Q4 | 3rd to 7th highest satisfaction scores | LIMIT with OFFSET | ✅ |
+| Q5 | Display first 8 records | LIMIT | ✅ |
+| Q6 | Last 5 patients (most recent) | ORDER BY DESC with LIMIT | ✅ |
+| Q7 | Top 10 highest satisfaction scores | ORDER BY with LIMIT | ✅ |
+| Q8 | Skip first 15 and show next 5 | LIMIT with OFFSET | ✅ |
+| Q9 | Retrieve all except first 5 rows | OFFSET only | ✅ |
+| Q10 | Records 6-12 sorted by age (youngest) | ORDER BY with LIMIT OFFSET | ✅ |
+| Q11 | 3rd, 4th, 5th most recent admissions | ORDER BY with LIMIT OFFSET | ✅ |
+| Q12 | 5 lowest satisfaction patients | ORDER BY ASC with LIMIT | ✅ |
+| Q13 | Minimum satisfaction score | MIN() function | ✅ |
+
+#### 💡 Key Takeaways
+
+> **"LIMIT and OFFSET are essential for building efficient, user-friendly paginated applications."**
+
+- LIMIT controls the number of rows returned
+- OFFSET skips a specified number of rows before returning results
+- Combining ORDER BY + LIMIT + OFFSET enables powerful pagination
+- LIMIT without OFFSET starts from the first row
+- Performance: OFFSET can be slow on large datasets (use cursor-based pagination for better performance)
+- MIN() function returns the smallest value in a column
+
 ### 🔥 Day 3: Sorting Data with ORDER BY
 **📆 Date:** November 5, 2025  
 **⏱️ Time Invested:** 2 hours  
@@ -74,7 +125,6 @@ I'm undertaking the **21-Days SQL Challenge** organized by [**Indian Data Club**
 ✓ Sorting numeric and text data
 ✓ Query result organization
 
-text
 
 #### 🏥 Practice Dataset: Hospital Management System
 
@@ -111,7 +161,7 @@ FROM service_weekly
 ORDER BY patients_refused DESC
 LIMIT 5;
 
-text
+
 
 ---
 
@@ -129,7 +179,7 @@ text
 ✓ LIKE operator with wildcards (%)
 ✓ ORDER BY for sorting results
 
-text
+
 
 #### 🏥 Practice Dataset: Hospital Management System
 
@@ -174,7 +224,6 @@ text
 SELECT * FROM patients
 WHERE name LIKE 'A%' AND service != 'emergency';
 
-text
 
 ---
 
@@ -192,7 +241,7 @@ text
 ✓ DISTINCT for unique values
 ✓ LIMIT for pagination
 
-text
+
 
 #### 🏥 Practice Dataset: Hospital Management System
 
@@ -229,7 +278,7 @@ text
 -- List all unique hospital services available in the hospital.
 SELECT DISTINCT(service) FROM service_weekly;
 
-text
+
 
 ---
 
@@ -248,7 +297,7 @@ text
 **Progress Bar:**
 [███░░░░░░░░░░░░░░░░░] 14.29% Complete
 
-text
+
 
 </div>
 
@@ -332,6 +381,6 @@ I'm documenting this journey publicly on LinkedIn! Follow along for:
 
 ![Visitor Count](https://visitor-badge.laobi.icu/badge?page_id=NihalMishra01.21-Days-SQL-Challenge)
 
-**Day 3 Complete ✅ | 18 More to Go! 🚀**
+**Day 4 Complete ✅ | 17 More to Go! 🚀**
 
 </div>
