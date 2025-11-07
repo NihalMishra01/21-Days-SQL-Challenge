@@ -6,7 +6,7 @@
 
 ![Challenge](https://custom-icon-badges.demolab.com/badge/Challenge-21%20Days-4169E1?style=for-the-badge&logo=calendar&logoColor=white)
 ![Status](https://custom-icon-badges.demolab.com/badge/Status-In%20Progress-success?style=for-the-badge&logo=rocket&logoColor=white)
-![Day](https://custom-icon-badges.demolab.com/badge/Day-4%2F21-orange?style=for-the-badge&logo=flame&logoColor=white)
+![Day](https://custom-icon-badges.demolab.com/badge/Day-5%2F21-orange?style=for-the-badge&logo=flame&logoColor=white)
 ![SQL](https://custom-icon-badges.demolab.com/badge/SQL-Database-blue?style=for-the-badge&logo=database&logoColor=white)
 
 <br>
@@ -60,7 +60,64 @@ I'm undertaking the **21-Days SQL Challenge** organized by [**Indian Data Club**
 ---
 
 ## 📅 Daily Progress Tracker
+### 🔥 Day 5: Aggregate Functions & Data Summarization
+**📆 Date:** November 7, 2025  
+**⏱️ Time Invested:** 2 hours  
+**📂 File:** [Day5 SQL Challenge.sql](https://github.com/NihalMishra01/21-Days-SQL-Challenge/blob/main/Day5%20SQL%20Challenge.sql)
 
+#### 📚 Topics Learned
+✓ COUNT() function for counting records
+✓ AVG() function for calculating averages
+✓ MIN() and MAX() for finding extremes
+✓ SUM() function for totals
+✓ ROUND() function for decimal precision
+✓ GROUP BY clause for categorization
+✓ Combining aggregate functions
+
+text
+
+#### 🏥 Practice Dataset: Hospital Management System
+
+**Tables Used:**
+1. **`patient`** - Patient demographics and service records
+2. **`services_weekly`** - Weekly hospital service analytics
+
+#### ✅ Problems Solved (8/8)
+
+| # | Problem | Concept | Status |
+|---|---------|---------|--------|
+| Q1 | Count total number of patients | COUNT() | ✅ |
+| Q2 | Calculate average satisfaction score | AVG() | ✅ |
+| Q3 | Find minimum and maximum age | MIN() & MAX() | ✅ |
+| Q4 | Total admitted, refused, avg satisfaction | Multiple aggregates | ✅ |
+| Q5 | Count patients under age 18 | COUNT() with WHERE | ✅ |
+| Q6 | Average satisfaction per service | AVG() with GROUP BY | ✅ |
+| Q7 | Age of oldest and youngest patient | MIN() & MAX() | ✅ |
+| Q8 | Average satisfaction for surgery service | AVG() with WHERE | ✅ |
+
+#### 💡 Key Takeaways
+
+> **"Aggregate functions transform raw data into meaningful business insights."**
+
+- COUNT() counts non-NULL values in a column
+- AVG() calculates the mean of numeric values
+- MIN() and MAX() work with numbers, dates, and text
+- ROUND() controls decimal precision for cleaner results
+- GROUP BY categorizes data before aggregation
+- Multiple aggregate functions can be used in a single query
+- WHERE filters before aggregation, HAVING filters after
+
+
+
+-- Daily Challenge Question
+-- Average satisfaction score for each service
+SELECT service, AVG(satisfaction) as avg_satisfaction
+FROM patient
+GROUP BY service;
+
+
+
+---
 ### 🔥 Day 4: Pagination with LIMIT & OFFSET
 **📆 Date:** November 6, 2025  
 **⏱️ Time Invested:** 2 hours  
@@ -152,7 +209,7 @@ text
 - Sorting text data uses alphabetical order (case-sensitive in some databases)
 - Performance impact increases with larger datasets - indexing helps
 
-#### 📸 Code Snippet
+
 
 -- Daily Challenge Question
 -- Top 5 weeks with highest patient refusals
@@ -288,16 +345,16 @@ SELECT DISTINCT(service) FROM service_weekly;
 
 | Metric | Count |
 |--------|-------|
-| 📝 Days Completed | 3 / 21 |
-| ✅ Problems Solved | 20 |
-| 📁 Files Uploaded | 3 |
-| ⏱️ Total Hours | 6 |
-| 🔥 Streak | 3 days |
+| 📝 Days Completed | 5 / 21 |
+| ✅ Problems Solved | 41 |
+| 📁 Files Uploaded | 5 |
+| ⏱️ Total Hours | 10 |
+| 🔥 Streak | 5 days |
 
 **Progress Bar:**
-[███░░░░░░░░░░░░░░░░░] 14.29% Complete
+[█████░░░░░░░░░░░░░░░] 23.81% Complete
 
-
+text
 
 </div>
 
@@ -323,7 +380,9 @@ SELECT DISTINCT(service) FROM service_weekly;
 | 📜 Day1 SQL Challenge.sql | Day 1 solutions and code |
 | 📜 Day2 SQL Challenge.sql | Day 2 solutions and code |
 | 📜 Day3 SQL Challenge.sql | Day 3 solutions and code |
-| ... | Days 4-20 solutions |
+| 📜 Day4 SQL Challenge.sql | Day 4 solutions and code |
+| 📜 Day5 SQL Challenge.sql | Day 5 solutions and code |
+| ... | Days 6-20 solutions |
 | 📜 Day21 SQL Challenge.sql | Final day challenge |
 | 📊 datasets/ | Practice datasets (CSV files) |
 
