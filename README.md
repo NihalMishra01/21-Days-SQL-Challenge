@@ -6,7 +6,7 @@
 
 ![Challenge](https://custom-icon-badges.demolab.com/badge/Challenge-21%20Days-4169E1?style=for-the-badge&logo=calendar&logoColor=white)
 ![Status](https://custom-icon-badges.demolab.com/badge/Status-In%20Progress-success?style=for-the-badge&logo=rocket&logoColor=white)
-![Day](https://custom-icon-badges.demolab.com/badge/Day-5%2F21-orange?style=for-the-badge&logo=flame&logoColor=white)
+![Day](https://custom-icon-badges.demolab.com/badge/Day-6%2F21-orange?style=for-the-badge&logo=flame&logoColor=white)
 ![SQL](https://custom-icon-badges.demolab.com/badge/SQL-Database-blue?style=for-the-badge&logo=database&logoColor=white)
 
 <br>
@@ -60,6 +60,67 @@ I'm undertaking the **21-Days SQL Challenge** organized by [**Indian Data Club**
 ---
 
 ## 📅 Daily Progress Tracker
+### 🔥 Day 6: Advanced GROUP BY & Calculations
+**📆 Date:** November 8, 2025  
+**⏱️ Time Invested:** 2 hours  
+**📂 File:** [Day6 SQL Challenge.sql](https://github.com/NihalMishra01/21-Days-SQL-Challenge/blob/main/Day6%20SQL%20Challenge.sql)
+
+#### 📚 Topics Learned
+✓ GROUP BY with aggregate functions
+✓ COUNT() with grouping
+✓ AVG() with categorization
+✓ SUM() for total calculations
+✓ Percentage calculations in SQL
+✓ ROUND() for decimal precision
+✓ Multi-column aggregation
+✓ Business metrics calculation (admission rate)
+
+
+#### 🏥 Practice Dataset: Hospital Management System
+
+**Tables Used:**
+1. **`patients`** - Patient demographics and service records
+2. **`service_weekly`** - Weekly hospital service analytics
+3. **`staff`** - Hospital staff information
+
+#### ✅ Problems Solved (4/4)
+
+| # | Problem | Concept | Status |
+|---|---------|---------|--------|
+| Q1 | Count patients by each service | COUNT() with GROUP BY | ✅ |
+| Q2 | Calculate average age by service | AVG() with GROUP BY | ✅ |
+| Q3 | Find total staff members per role | COUNT() with GROUP BY | ✅ |
+| Q4 | Calculate admission rate per service | SUM(), percentage, ORDER BY | ✅ |
+
+#### 💡 Key Takeaways
+
+> **"GROUP BY transforms data into business intelligence by revealing patterns and trends."**
+
+- GROUP BY creates categories for aggregate calculations
+- Multiple aggregate functions (SUM, COUNT) can be combined in one query
+- Percentage calculations require careful handling: (part / total) * 100
+- ROUND() ensures readable decimal precision for business metrics
+- ORDER BY with aggregates helps identify top/bottom performers
+- 100.0 in calculations forces float division for accurate percentages
+
+#### 📸 Code Snippet
+
+-- Daily Challenge Question
+-- Calculate admission rate per service
+SELECT
+service,
+SUM(patients_admitted) AS total_admitted,
+SUM(patients_refused) AS total_refused,
+ROUND(
+(SUM(patients_admitted) * 100.0) /
+(SUM(patients_admitted) + SUM(patients_refused)), 2
+) AS admission_rate
+FROM service_weekly
+GROUP BY service
+ORDER BY admission_rate DESC;
+
+
+---
 ### 🔥 Day 5: Aggregate Functions & Data Summarization
 **📆 Date:** November 7, 2025  
 **⏱️ Time Invested:** 2 hours  
@@ -345,18 +406,18 @@ SELECT DISTINCT(service) FROM service_weekly;
 
 | Metric | Count |
 |--------|-------|
-| 📝 Days Completed | 5 / 21 |
-| ✅ Problems Solved | 41 |
-| 📁 Files Uploaded | 5 |
-| ⏱️ Total Hours | 10 |
-| 🔥 Streak | 5 days |
+| 📝 Days Completed | 6 / 21 |
+| ✅ Problems Solved | 45 |
+| 📁 Files Uploaded | 6 |
+| ⏱️ Total Hours | 12 |
+| 🔥 Streak | 6 days |
 
 **Progress Bar:**
-[█████░░░░░░░░░░░░░░░] 23.81% Complete
+[██████░░░░░░░░░░░░░░] 28.57% Complete
 
-text
 
 </div>
+
 
 ---
 
@@ -382,7 +443,8 @@ text
 | 📜 Day3 SQL Challenge.sql | Day 3 solutions and code |
 | 📜 Day4 SQL Challenge.sql | Day 4 solutions and code |
 | 📜 Day5 SQL Challenge.sql | Day 5 solutions and code |
-| ... | Days 6-20 solutions |
+| 📜 Day6 SQL Challenge.sql | Day 6 solutions and code |
+| ... | Days 7-20 solutions |
 | 📜 Day21 SQL Challenge.sql | Final day challenge |
 | 📊 datasets/ | Practice datasets (CSV files) |
 
@@ -440,6 +502,6 @@ I'm documenting this journey publicly on LinkedIn! Follow along for:
 
 ![Visitor Count](https://visitor-badge.laobi.icu/badge?page_id=NihalMishra01.21-Days-SQL-Challenge)
 
-**Day 4 Complete ✅ | 17 More to Go! 🚀**
+**Day 6 Complete ✅ | 15 More to Go! 🚀**
 
 </div>
