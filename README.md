@@ -6,7 +6,7 @@
 
 ![Challenge](https://custom-icon-badges.demolab.com/badge/Challenge-21%20Days-4169E1?style=for-the-badge&logo=calendar&logoColor=white)
 ![Status](https://custom-icon-badges.demolab.com/badge/Status-In%20Progress-success?style=for-the-badge&logo=rocket&logoColor=white)
-![Day](https://custom-icon-badges.demolab.com/badge/Day-6%2F21-orange?style=for-the-badge&logo=flame&logoColor=white)
+![Day](https://custom-icon-badges.demolab.com/badge/Day-7%2F21-orange?style=for-the-badge&logo=flame&logoColor=white)
 ![SQL](https://custom-icon-badges.demolab.com/badge/SQL-Database-blue?style=for-the-badge&logo=database&logoColor=white)
 
 <br>
@@ -60,6 +60,64 @@ I'm undertaking the **21-Days SQL Challenge** organized by [**Indian Data Club**
 ---
 
 ## 📅 Daily Progress Tracker
+### 🔥 Day 7: Filtering Grouped Data with HAVING
+**📆 Date:** November 9, 2025  
+**⏱️ Time Invested:** 2 hours  
+**📂 File:** [Day7 SQL Challenge.sql](https://github.com/NihalMishra01/21-Days-SQL-Challenge/blob/main/Day7%20SQL%20Challenge.sql)
+
+#### 📚 Topics Learned
+✓ HAVING clause fundamentals
+✓ Filtering aggregated results
+✓ HAVING vs WHERE differences
+✓ Multiple conditions with AND/OR
+✓ Combining SUM(), AVG(), COUNT() in HAVING
+✓ Complex business logic filtering
+✓ Post-aggregation filtering
+
+
+#### 🏥 Practice Dataset: Hospital Management System
+
+**Tables Used:**
+1. **`service_weekly`** - Weekly hospital service analytics
+2. **`patients`** - Patient demographics and service records
+3. **`staff_schedule`** - Weekly staff attendance tracking
+
+#### ✅ Problems Solved (4/4)
+
+| # | Problem | Concept | Status |
+|---|---------|---------|--------|
+| Q1 | Services with >500 total admissions | HAVING with SUM() | ✅ |
+| Q2 | Services with avg satisfaction <75 | HAVING with AVG() | ✅ |
+| Q3 | Weeks with staff presence <50 | HAVING with SUM() | ✅ |
+| Q4 | Services: >100 refused AND satisfaction <80 | HAVING with multiple conditions | ✅ |
+
+#### 💡 Key Takeaways
+
+> **"WHERE filters rows before grouping; HAVING filters groups after aggregation."**
+
+- HAVING is used with GROUP BY to filter aggregated results
+- WHERE cannot be used with aggregate functions
+- Multiple conditions in HAVING use AND/OR logical operators
+- HAVING executes after GROUP BY, WHERE executes before
+- Both WHERE and HAVING can be used together in same query
+- HAVING enables complex business logic on aggregated data
+
+#### 📸 Code Snippet
+
+-- Daily Challenge Question
+-- Services with >100 refused AND avg satisfaction <80
+SELECT
+service,
+SUM(patients_refused) AS total_refused,
+AVG(patient_satisfaction) AS avg_satisfaction
+FROM service_weekly
+GROUP BY service
+HAVING
+SUM(patients_refused) > 100
+AND AVG(patient_satisfaction) < 80;
+
+
+---
 ### 🔥 Day 6: Advanced GROUP BY & Calculations
 **📆 Date:** November 8, 2025  
 **⏱️ Time Invested:** 2 hours  
@@ -406,18 +464,19 @@ SELECT DISTINCT(service) FROM service_weekly;
 
 | Metric | Count |
 |--------|-------|
-| 📝 Days Completed | 6 / 21 |
-| ✅ Problems Solved | 45 |
-| 📁 Files Uploaded | 6 |
-| ⏱️ Total Hours | 12 |
-| 🔥 Streak | 6 days |
+| 📝 Days Completed | 7 / 21 |
+| ✅ Problems Solved | 49 |
+| 📁 Files Uploaded | 7 |
+| ⏱️ Total Hours | 14 |
+| 🔥 Streak | 7 days |
 
 **Progress Bar:**
-[██████░░░░░░░░░░░░░░] 28.57% Complete
+[███████░░░░░░░░░░░░░] 33.33% Complete
 
+
+**🎉 Week 1 Milestone Achieved! 🎉**
 
 </div>
-
 
 ---
 
@@ -444,7 +503,8 @@ SELECT DISTINCT(service) FROM service_weekly;
 | 📜 Day4 SQL Challenge.sql | Day 4 solutions and code |
 | 📜 Day5 SQL Challenge.sql | Day 5 solutions and code |
 | 📜 Day6 SQL Challenge.sql | Day 6 solutions and code |
-| ... | Days 7-20 solutions |
+| 📜 Day7 SQL Challenge.sql | Day 7 solutions and code |
+| ... | Days 8-20 solutions |
 | 📜 Day21 SQL Challenge.sql | Final day challenge |
 | 📊 datasets/ | Practice datasets (CSV files) |
 
@@ -502,6 +562,6 @@ I'm documenting this journey publicly on LinkedIn! Follow along for:
 
 ![Visitor Count](https://visitor-badge.laobi.icu/badge?page_id=NihalMishra01.21-Days-SQL-Challenge)
 
-**Day 6 Complete ✅ | 15 More to Go! 🚀**
+**Day 7 Complete ✅ | 14 More to Go! 🚀**
 
 </div>
