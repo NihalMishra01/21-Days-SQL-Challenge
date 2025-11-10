@@ -6,7 +6,7 @@
 
 ![Challenge](https://custom-icon-badges.demolab.com/badge/Challenge-21%20Days-4169E1?style=for-the-badge&logo=calendar&logoColor=white)
 ![Status](https://custom-icon-badges.demolab.com/badge/Status-In%20Progress-success?style=for-the-badge&logo=rocket&logoColor=white)
-![Day](https://custom-icon-badges.demolab.com/badge/Day-7%2F21-orange?style=for-the-badge&logo=flame&logoColor=white)
+![Day](https://custom-icon-badges.demolab.com/badge/Day-8%2F21-orange?style=for-the-badge&logo=flame&logoColor=white)
 ![SQL](https://custom-icon-badges.demolab.com/badge/SQL-Database-blue?style=for-the-badge&logo=database&logoColor=white)
 
 <br>
@@ -60,6 +60,66 @@ I'm undertaking the **21-Days SQL Challenge** organized by [**Indian Data Club**
 ---
 
 ## 📅 Daily Progress Tracker
+### 🔥 Day 8: String Functions & Data Transformation
+**📆 Date:** November 10, 2025  
+**⏱️ Time Invested:** 2 hours  
+**📂 File:** [Day8 SQL Challenge.sql](https://github.com/NihalMishra01/21-Days-SQL-Challenge/blob/main/Day8%20SQL%20Challenge.sql)
+
+#### 📚 Topics Learned
+✓ UPPER() function for uppercase conversion
+✓ LOWER() function for lowercase conversion
+✓ LENGTH() function for string length
+✓ CONCAT() function for string concatenation
+✓ CASE statement for conditional logic
+✓ String manipulation techniques
+✓ Combining multiple string functions
+
+#### 🏥 Practice Dataset: Hospital Management System
+
+**Tables Used:**
+1. **`patients`** - Patient demographics and service records
+2. **`staff`** - Hospital staff information
+
+#### ✅ Problems Solved (4/4)
+
+| # | Problem | Concept | Status |
+|---|---------|---------|--------|
+| Q1 | Convert patient names to uppercase | UPPER() | ✅ |
+| Q2 | Find length of staff member names | LENGTH() | ✅ |
+| Q3 | Concatenate staff_id and staff_name | CONCAT() | ✅ |
+| Q4 | Patient summary with transformations | Multiple functions + CASE | ✅ |
+
+#### 💡 Key Takeaways
+
+> **"String functions enable data standardization and transformation for consistent reporting."**
+
+- UPPER() and LOWER() standardize text case for comparisons
+- LENGTH() calculates character count (useful for validation)
+- CONCAT() combines multiple columns or strings with separators
+- CASE statement provides conditional logic within queries
+- String functions can be combined in single SELECT statement
+- WHERE clause can filter based on string function results
+- These functions are essential for data cleaning and formatting
+
+#### 📸 Code Snippet
+
+-- Daily Challenge Question
+-- Patient summary with multiple transformations
+SELECT
+patient_id,
+UPPER(name) AS full_name,
+LOWER(service) AS service_lower,
+CASE
+WHEN age >= 65 THEN 'Senior'
+WHEN age >= 18 THEN 'Adult'
+ELSE 'Minor'
+END AS age_category,
+LENGTH(name) AS name_length
+FROM patients
+WHERE LENGTH(name) > 10;
+
+
+---
 ### 🔥 Day 7: Filtering Grouped Data with HAVING
 **📆 Date:** November 9, 2025  
 **⏱️ Time Invested:** 2 hours  
@@ -464,17 +524,15 @@ SELECT DISTINCT(service) FROM service_weekly;
 
 | Metric | Count |
 |--------|-------|
-| 📝 Days Completed | 7 / 21 |
-| ✅ Problems Solved | 49 |
-| 📁 Files Uploaded | 7 |
-| ⏱️ Total Hours | 14 |
-| 🔥 Streak | 7 days |
+| 📝 Days Completed | 8 / 21 |
+| ✅ Problems Solved | 53 |
+| 📁 Files Uploaded | 8 |
+| ⏱️ Total Hours | 16 |
+| 🔥 Streak | 8 days |
 
 **Progress Bar:**
-[███████░░░░░░░░░░░░░] 33.33% Complete
+[████████░░░░░░░░░░░░] 38.10% Complete
 
-
-**🎉 Week 1 Milestone Achieved! 🎉**
 
 </div>
 
@@ -504,7 +562,8 @@ SELECT DISTINCT(service) FROM service_weekly;
 | 📜 Day5 SQL Challenge.sql | Day 5 solutions and code |
 | 📜 Day6 SQL Challenge.sql | Day 6 solutions and code |
 | 📜 Day7 SQL Challenge.sql | Day 7 solutions and code |
-| ... | Days 8-20 solutions |
+| 📜 Day8 SQL Challenge.sql | Day 8 solutions and code |
+| ... | Days 9-20 solutions |
 | 📜 Day21 SQL Challenge.sql | Final day challenge |
 | 📊 datasets/ | Practice datasets (CSV files) |
 
@@ -562,6 +621,6 @@ I'm documenting this journey publicly on LinkedIn! Follow along for:
 
 ![Visitor Count](https://visitor-badge.laobi.icu/badge?page_id=NihalMishra01.21-Days-SQL-Challenge)
 
-**Day 7 Complete ✅ | 14 More to Go! 🚀**
+**Day 8 Complete ✅ | 13 More to Go! 🚀**
 
 </div>
