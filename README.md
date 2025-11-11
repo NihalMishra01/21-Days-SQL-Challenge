@@ -6,7 +6,7 @@
 
 ![Challenge](https://custom-icon-badges.demolab.com/badge/Challenge-21%20Days-4169E1?style=for-the-badge&logo=calendar&logoColor=white)
 ![Status](https://custom-icon-badges.demolab.com/badge/Status-In%20Progress-success?style=for-the-badge&logo=rocket&logoColor=white)
-![Day](https://custom-icon-badges.demolab.com/badge/Day-8%2F21-orange?style=for-the-badge&logo=flame&logoColor=white)
+![Day](https://custom-icon-badges.demolab.com/badge/Day-9%2F21-orange?style=for-the-badge&logo=flame&logoColor=white)
 ![SQL](https://custom-icon-badges.demolab.com/badge/SQL-Database-blue?style=for-the-badge&logo=database&logoColor=white)
 
 <br>
@@ -60,6 +60,64 @@ I'm undertaking the **21-Days SQL Challenge** organized by [**Indian Data Club**
 ---
 
 ## 📅 Daily Progress Tracker
+### 🔥 Day 9: Date Functions & Time-Based Analytics
+**📆 Date:** November 11, 2025  
+**⏱️ Time Invested:** 2 hours  
+**📂 File:** [Day9 SQL Challenge.sql](https://github.com/NihalMishra01/21-Days-SQL-Challenge/blob/main/Day9%20SQL%20Challenge.sql)
+
+#### 📚 Topics Learned
+✓ EXTRACT() function for date parts
+✓ Date arithmetic operations
+✓ COALESCE() for NULL handling
+✓ CURRENT_DATE for dynamic dates
+✓ Date difference calculations
+✓ Time-based filtering
+✓ Combining dates with aggregates
+
+
+#### 🏥 Practice Dataset: Hospital Management System
+
+**Tables Used:**
+1. **`patients`** - Patient demographics and service records (with date columns)
+
+#### ✅ Problems Solved (4/4)
+
+| # | Problem | Concept | Status |
+|---|---------|---------|--------|
+| Q1 | Extract year from patient arrival dates | EXTRACT(YEAR) | ✅ |
+| Q2 | Calculate length of stay per patient | Date arithmetic | ✅ |
+| Q3 | Find patients who arrived in specific month | EXTRACT(MONTH) with WHERE | ✅ |
+| Q4 | Avg length of stay per service (>7 days) | Date arithmetic with GROUP BY/HAVING | ✅ |
+
+#### 💡 Key Takeaways
+
+> **"Date functions transform timestamps into actionable time-based insights."**
+
+- EXTRACT() pulls specific date parts (YEAR, MONTH, DAY, etc.)
+- Date arithmetic: subtraction gives day difference as integer
+- COALESCE() handles NULL dates by providing fallback values
+- CURRENT_DATE returns today's date for dynamic calculations
+- ::numeric casting ensures proper decimal handling
+- Time-based analytics reveal seasonal patterns and trends
+- Date functions are essential for business intelligence
+
+#### 📸 Code Snippet
+
+-- Daily Challenge Question
+-- Average length of stay per service (>7 days only)
+SELECT
+service,
+ROUND(AVG((COALESCE(departure_date, CURRENT_DATE) - arrival_date))::numeric, 2) AS avg_length_of_stay_days,
+COUNT(*) AS patient_count
+FROM patients
+WHERE arrival_date IS NOT NULL
+GROUP BY service
+HAVING AVG((COALESCE(departure_date, CURRENT_DATE) - arrival_date)) > 7
+ORDER BY avg_length_of_stay_days DESC;
+
+
+
+---
 ### 🔥 Day 8: String Functions & Data Transformation
 **📆 Date:** November 10, 2025  
 **⏱️ Time Invested:** 2 hours  
@@ -524,18 +582,17 @@ SELECT DISTINCT(service) FROM service_weekly;
 
 | Metric | Count |
 |--------|-------|
-| 📝 Days Completed | 8 / 21 |
-| ✅ Problems Solved | 53 |
-| 📁 Files Uploaded | 8 |
-| ⏱️ Total Hours | 16 |
-| 🔥 Streak | 8 days |
+| 📝 Days Completed | 9 / 21 |
+| ✅ Problems Solved | 57 |
+| 📁 Files Uploaded | 9 |
+| ⏱️ Total Hours | 18 |
+| 🔥 Streak | 9 days |
 
 **Progress Bar:**
-[████████░░░░░░░░░░░░] 38.10% Complete
+[█████████░░░░░░░░░░░] 42.86% Complete
 
 
 </div>
-
 ---
 
 ## 🛠️ Tech Stack & Tools
@@ -563,7 +620,8 @@ SELECT DISTINCT(service) FROM service_weekly;
 | 📜 Day6 SQL Challenge.sql | Day 6 solutions and code |
 | 📜 Day7 SQL Challenge.sql | Day 7 solutions and code |
 | 📜 Day8 SQL Challenge.sql | Day 8 solutions and code |
-| ... | Days 9-20 solutions |
+| 📜 Day9 SQL Challenge.sql | Day 9 solutions and code |
+| ... | Days 10-21 solutions |
 | 📜 Day21 SQL Challenge.sql | Final day challenge |
 | 📊 datasets/ | Practice datasets (CSV files) |
 
@@ -621,6 +679,6 @@ I'm documenting this journey publicly on LinkedIn! Follow along for:
 
 ![Visitor Count](https://visitor-badge.laobi.icu/badge?page_id=NihalMishra01.21-Days-SQL-Challenge)
 
-**Day 8 Complete ✅ | 13 More to Go! 🚀**
+**Day 9 Complete ✅ | 12 More to Go! 🚀**
 
 </div>
