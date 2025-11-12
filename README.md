@@ -6,7 +6,7 @@
 
 ![Challenge](https://custom-icon-badges.demolab.com/badge/Challenge-21%20Days-4169E1?style=for-the-badge&logo=calendar&logoColor=white)
 ![Status](https://custom-icon-badges.demolab.com/badge/Status-In%20Progress-success?style=for-the-badge&logo=rocket&logoColor=white)
-![Day](https://custom-icon-badges.demolab.com/badge/Day-9%2F21-orange?style=for-the-badge&logo=flame&logoColor=white)
+![Day](https://custom-icon-badges.demolab.com/badge/Day-10%2F21-orange?style=for-the-badge&logo=flame&logoColor=white)
 ![SQL](https://custom-icon-badges.demolab.com/badge/SQL-Database-blue?style=for-the-badge&logo=database&logoColor=white)
 
 <br>
@@ -60,6 +60,68 @@ I'm undertaking the **21-Days SQL Challenge** organized by [**Indian Data Club**
 ---
 
 ## 📅 Daily Progress Tracker
+### 🔥 Day 10: Conditional Logic with CASE Statements
+**📆 Date:** November 12, 2025  
+**⏱️ Time Invested:** 2 hours  
+**📂 File:** [Day10 SQL Challenge.sql](https://github.com/NihalMishra01/21-Days-SQL-Challenge/blob/main/Day10%20SQL%20Challenge.sql)
+
+#### 📚 Topics Learned
+✓ CASE WHEN THEN ELSE statements
+✓ Multi-condition categorization
+✓ Creating custom labels
+✓ CASE with aggregate functions
+✓ IN operator with CASE
+✓ BETWEEN with CASE
+✓ Business logic implementation
+
+#### 🏥 Practice Dataset: Hospital Management System
+
+**Tables Used:**
+1. **`patients`** - Patient demographics and service records
+2. **`staff`** - Hospital staff information
+3. **`service_weekly`** - Weekly hospital service analytics
+
+#### ✅ Problems Solved (4/4)
+
+| # | Problem | Concept | Status |
+|---|---------|---------|--------|
+| Q1 | Categorize patient satisfaction levels | CASE with ranges | ✅ |
+| Q2 | Label staff roles as Medical/Support | CASE with IN | ✅ |
+| Q3 | Create age groups for patients | CASE with BETWEEN | ✅ |
+| Q4 | Service performance report with categories | CASE with GROUP BY & aggregates | ✅ |
+
+#### 💡 Key Takeaways
+
+> **"CASE statements transform raw data into business intelligence by applying conditional logic."**
+
+- CASE evaluates conditions sequentially, returns first match
+- ELSE clause provides default value when no conditions match
+- CASE can be used with aggregate functions (AVG, SUM, etc.)
+- Multiple CASE statements can appear in single SELECT
+- BETWEEN simplifies range-based categorization
+- IN operator makes multi-value checks cleaner
+- CASE is essential for creating business reports and dashboards
+
+#### 📸 Code Snippet
+
+-- Daily Challenge Question
+-- Service performance report with dynamic categories
+SELECT
+service AS service_name,
+SUM(patients_admitted) AS total_patients_admitted,
+AVG(patient_satisfaction) AS avg_satisfaction,
+CASE
+WHEN AVG(patient_satisfaction) >= 85 THEN 'Excellent'
+WHEN AVG(patient_satisfaction) >= 75 THEN 'Good'
+WHEN AVG(patient_satisfaction) >= 65 THEN 'Fair'
+ELSE 'Needs Improvement'
+END AS performance_category
+FROM service_weekly
+GROUP BY service
+ORDER BY avg_satisfaction DESC;
+
+
+---
 ### 🔥 Day 9: Date Functions & Time-Based Analytics
 **📆 Date:** November 11, 2025  
 **⏱️ Time Invested:** 2 hours  
@@ -582,15 +644,16 @@ SELECT DISTINCT(service) FROM service_weekly;
 
 | Metric | Count |
 |--------|-------|
-| 📝 Days Completed | 9 / 21 |
-| ✅ Problems Solved | 57 |
-| 📁 Files Uploaded | 9 |
-| ⏱️ Total Hours | 18 |
-| 🔥 Streak | 9 days |
+| 📝 Days Completed | 10 / 21 |
+| ✅ Problems Solved | 61 |
+| 📁 Files Uploaded | 10 |
+| ⏱️ Total Hours | 20 |
+| 🔥 Streak | 10 days |
 
 **Progress Bar:**
-[█████████░░░░░░░░░░░] 42.86% Complete
+[██████████░░░░░░░░░░] 47.62% Complete
 
+**🎉 Double Digits Milestone! 🎉**
 
 </div>
 ---
@@ -621,7 +684,8 @@ SELECT DISTINCT(service) FROM service_weekly;
 | 📜 Day7 SQL Challenge.sql | Day 7 solutions and code |
 | 📜 Day8 SQL Challenge.sql | Day 8 solutions and code |
 | 📜 Day9 SQL Challenge.sql | Day 9 solutions and code |
-| ... | Days 10-21 solutions |
+| 📜 Day10 SQL Challenge.sql | Day 10 solutions and code |
+| ... | Days 11-21 solutions |
 | 📜 Day21 SQL Challenge.sql | Final day challenge |
 | 📊 datasets/ | Practice datasets (CSV files) |
 
@@ -679,6 +743,6 @@ I'm documenting this journey publicly on LinkedIn! Follow along for:
 
 ![Visitor Count](https://visitor-badge.laobi.icu/badge?page_id=NihalMishra01.21-Days-SQL-Challenge)
 
-**Day 9 Complete ✅ | 12 More to Go! 🚀**
+**Day 10 Complete ✅ | Halfway Point in Sight! | 11 More to Go! 🚀**
 
 </div>
