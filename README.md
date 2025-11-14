@@ -6,7 +6,7 @@
 
 ![Challenge](https://custom-icon-badges.demolab.com/badge/Challenge-21%20Days-4169E1?style=for-the-badge&logo=calendar&logoColor=white)
 ![Status](https://custom-icon-badges.demolab.com/badge/Status-In%20Progress-success?style=for-the-badge&logo=rocket&logoColor=white)
-![Day](https://custom-icon-badges.demolab.com/badge/Day-11%2F21-orange?style=for-the-badge&logo=flame&logoColor=white)
+![Day](https://custom-icon-badges.demolab.com/badge/Day-12%2F21-orange?style=for-the-badge&logo=flame&logoColor=white)
 ![SQL](https://custom-icon-badges.demolab.com/badge/SQL-Database-blue?style=for-the-badge&logo=database&logoColor=white)
 
 <br>
@@ -60,6 +60,65 @@ I'm undertaking the **21-Days SQL Challenge** organized by [**Indian Data Club**
 ---
 
 ## 📅 Daily Progress Tracker
+### 🔥 Day 12: NULL Values and Data Integrity
+**📆 Date:** November 15, 2025  
+**⏱️ Time Invested:** 2 hours  
+**📂 File:** [Day12 SQL Challenge.sql](https://github.com/NihalMishra01/21-Days-SQL-Challenge/blob/main/Day12%20SQL%20Challenge.sql)
+
+#### 📚 Topics Learned
+✓ IS NULL operator for detecting missing values
+✓ IS NOT NULL for filtering complete records
+✓ COALESCE() function for default values
+✓ NULL handling in WHERE clauses
+✓ Counting NULL vs non-NULL values
+✓ NULL in aggregate functions
+✓ Data quality validation
+
+
+#### 🏥 Practice Dataset: Hospital Management System
+
+**Tables Used:**
+1. **`patients`** - Patient demographics and service records (with potential NULL values)
+2. **`staff`** - Hospital staff information
+3. **`service_weekly`** - Weekly hospital service analytics
+
+#### ✅ Problems Solved (4/4)
+
+| # | Problem | Concept | Status |
+|---|---------|---------|--------|
+| Q1 | Find patients with missing departure dates | IS NULL | ✅ |
+| Q2 | Count patients with complete records | IS NOT NULL with COUNT() | ✅ |
+| Q3 | Handle missing dates with defaults | COALESCE() | ✅ |
+| Q4 | Patient status report with NULL handling | IS NULL with CASE | ✅ |
+
+#### 💡 Key Takeaways
+
+> **"NULL represents missing or unknown data - handling it properly is essential for data integrity."**
+
+- NULL is not equal to zero, empty string, or false
+- Always use IS NULL/IS NOT NULL, never = NULL or != NULL
+- COALESCE() returns first non-NULL value from a list
+- NULL in calculations makes entire result NULL
+- COUNT(*) counts NULLs, COUNT(column) doesn't
+- WHERE filters can specifically target or exclude NULLs
+- Proper NULL handling prevents data quality issues
+
+#### 📸 Code Snippet
+
+sql
+-- Daily Challenge Question
+-- Handle missing departure dates with COALESCE
+SELECT 
+    patient_id,
+    name,
+    arrival_date,
+    COALESCE(departure_date, CURRENT_DATE) AS effective_departure,
+    CASE 
+        WHEN departure_date IS NULL THEN 'Currently Admitted'
+        ELSE 'Discharged'
+    END AS status
+FROM patients
+WHERE arrival_date IS NOT NULL;
 ### 🔥 Day 11: DISTINCT - Finding Unique Values
 **📆 Date:** November 13, 2025  
 **⏱️ Time Invested:** 2 hours  
@@ -681,23 +740,20 @@ SELECT DISTINCT(service) FROM service_weekly;
 
 
 ---
-
 ### 📊 Challenge Statistics
 
 <div align="center">
 
 | Metric | Count |
 |--------|-------|
-| 📝 Days Completed | 11 / 21 |
-| ✅ Problems Solved | 64 |
-| 📁 Files Uploaded | 11 |
-| ⏱️ Total Hours | 22 |
-| 🔥 Streak | 11 days |
+| 📝 Days Completed | 12 / 21 |
+| ✅ Problems Solved | 68 |
+| 📁 Files Uploaded | 12 |
+| ⏱️ Total Hours | 24 |
+| 🔥 Streak | 12 days |
 
 **Progress Bar:**
-
-[███████████░░░░░░░░░] 52.38% Complete
-🎉 HALFWAY MILESTONE ACHIEVED! 🎉
+[████████████░░░░░░░░] 57.14% Complete
 
 </div>
 
@@ -731,7 +787,8 @@ SELECT DISTINCT(service) FROM service_weekly;
 | 📜 Day9 SQL Challenge.sql | Day 9 solutions and code |
 | 📜 Day10 SQL Challenge.sql | Day 10 solutions and code |
 | 📜 Day11 SQL Challenge.sql | Day 11 solutions and code |
-| ... | Days 12-21 solutions |
+| 📜 Day12 SQL Challenge.sql | Day 12 solutions and code |
+| ... | Days 13-21 solutions |
 | 📜 Day21 SQL Challenge.sql | Final day challenge |
 | 📊 datasets/ | Practice datasets (CSV files) |
 
@@ -789,6 +846,6 @@ I'm documenting this journey publicly on LinkedIn! Follow along for:
 
 ![Visitor Count](https://visitor-badge.laobi.icu/badge?page_id=NihalMishra01.21-Days-SQL-Challenge)
 
-**Day 11 Complete ✅ | Halfway Point in Sight! | 10 More to Go! 🚀**
+**Day 12 Complete ✅ | 9 More to Go! 🚀**
 
 </div>
