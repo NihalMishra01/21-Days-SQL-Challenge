@@ -5,13 +5,13 @@
 <br><br>
 
 ![Challenge](https://custom-icon-badges.demolab.com/badge/Challenge-21%20Days-4169E1?style=for-the-badge&logo=calendar&logoColor=white)
-![Status](https://custom-icon-badges.demolab.com/badge/Status-In%20Progress-success?style=for-the-badge&logo=rocket&logoColor=white)
-![Day](https://custom-icon-badges.demolab.com/badge/Day-12%2F21-orange?style=for-the-badge&logo=flame&logoColor=white)
+![Status](https://custom-icon-badges.demolab.com/badge/Status-Completed-success?style=for-the-badge&logo=trophy&logoColor=white)
+![Day](https://custom-icon-badges.demolab.com/badge/Day-21%2F21-orange?style=for-the-badge&logo=flame&logoColor=white)
 ![SQL](https://custom-icon-badges.demolab.com/badge/SQL-Database-blue?style=for-the-badge&logo=database&logoColor=white)
 
 <br>
 
-<img src="https://readme-typing-svg.herokuapp.com?font=Fira+Code&weight=600&size=22&pause=1000&color=4169E1&center=true&vCenter=true&random=false&width=500&lines=Learning+SQL+Daily+💪;Building+Real+Projects+🎯;Mastering+Data+Analysis+📊" alt="Typing SVG" />
+<img src="https://readme-typing-svg.herokuapp.com?font=Fira+Code&weight=600&size=22&pause=1000&color=4169E1&center=true&vCenter=true&random=false&width=500&lines=21+Days+Challenge+Complete!+🎉;Building+Real+Projects+🎯;Mastering+Data+Analysis+📊" alt="Typing SVG" />
 
 <br>
 
@@ -19,14 +19,13 @@
 
 </div>
 
-
 ---
 
 ## 📖 About The Challenge
 
-I'm undertaking the **21-Days SQL Challenge** organized by [**Indian Data Club**](http://indiandataclub.com/) to master SQL from ground zero to advanced level. This repository is a complete documentation of my daily progress, code solutions, and key learnings.
+I successfully completed the **21-Days SQL Challenge** organized by [**Indian Data Club**](http://indiandataclub.com/), mastering SQL from ground zero to advanced level. This repository is a complete documentation of my daily progress, code solutions, and key learnings.
 
-> **Mission:** Build production-ready SQL skills through consistent daily practice, real-world datasets, and problem-solving.
+> **Mission Accomplished:** Built production-ready SQL skills through consistent daily practice, real-world datasets, and problem-solving.
 
 ### 🎯 Challenge Structure
 
@@ -50,7 +49,7 @@ I'm undertaking the **21-Days SQL Challenge** organized by [**Indian Data Club**
 > ✓ Critical for business intelligence & analytics  
 > ✓ Required by 90%+ of data analyst positions
 
-**My Learning Goals:**
+**Learning Goals Achieved:**
 - ✅ Write optimized queries for large datasets
 - ✅ Master complex joins and subqueries
 - ✅ Understand database design principles
@@ -60,6 +59,618 @@ I'm undertaking the **21-Days SQL Challenge** organized by [**Indian Data Club**
 ---
 
 ## 📅 Daily Progress Tracker
+
+### 🔥 Day 21: Comprehensive Analytics Dashboard with CTEs
+**📆 Date:** November 27, 2025  
+**⏱️ Time Invested:** 2 hours  
+**📂 File:** [Day21 SQL Challenge.sql](https://github.com/NihalMishra01/21-Days-SQL-Challenge/blob/main/Day21%20SQL%20Challenge.sql)
+
+#### 📚 Topics Learned
+✓ Multiple CTEs for complex dashboards
+✓ Service-level performance metrics
+✓ Staff utilization analytics
+✓ Patient demographics aggregation
+✓ Weighted performance scoring
+✓ Multi-table CTE joins
+✓ Production-ready reporting queries
+
+#### 🏥 Practice Dataset: Hospital Management System
+
+**Tables Used:**
+1. **`services_weekly`** - Weekly hospital service analytics
+2. **`patient`** - Patient demographics and service records
+3. **`staff`** - Hospital staff information
+
+#### ✅ Problems Solved (4/4)
+
+| # | Problem | Concept | Status |
+|---|---------|---------|--------|
+| Q1 | Service statistics CTE | Single CTE with aggregates | ✅ |
+| Q2 | Multiple CTEs for complex analysis | Multiple CTEs with joins | ✅ |
+| Q3 | Staff utilization with patient data | CTE joins across tables | ✅ |
+| Q4 | Comprehensive hospital dashboard | 3 CTEs with performance scoring | ✅ |
+
+#### 💡 Key Takeaways
+
+> **"CTEs enable building production-grade dashboards by structuring complex logic into readable, maintainable components."**
+
+- Multiple CTEs allow breaking complex queries into logical steps
+- Each CTE can be referenced multiple times in final query
+- CTEs improve code maintainability and debugging
+- Weighted scoring combines multiple metrics into single KPI
+- LEFT JOINs ensure all services appear even without matches
+- Real-world dashboards often use 3-5 CTEs for different metrics
+
+#### 📸 Code Snippet
+
+-- Daily Challenge Question
+-- Comprehensive hospital performance dashboard
+WITH
+service_metrics AS (
+SELECT
+service,
+SUM(patients_admitted) AS total_admissions,
+SUM(patients_refused) AS total_refusals,
+ROUND(AVG(patient_satisfaction), 2) AS avg_satisfaction
+FROM services_weekly
+GROUP BY service
+),
+staff_metrics AS (
+SELECT
+service,
+COUNT(staff_id) AS total_staff
+FROM staff
+GROUP BY service
+),
+patient_demo AS (
+SELECT
+service,
+ROUND(AVG(age), 1) AS avg_patient_age,
+COUNT(patient_id) AS total_patients
+FROM patient
+GROUP BY service
+)
+SELECT
+sm.service,
+sm.total_admissions,
+sm.total_refusals,
+sm.avg_satisfaction,
+st.total_staff,
+pd.avg_patient_age,
+pd.total_patients,
+ROUND(
+((sm.total_admissions * 0.6) + (sm.avg_satisfaction * 0.4)) / 10,
+2
+) AS performance_score
+FROM service_metrics sm
+LEFT JOIN staff_metrics st ON sm.service = st.service
+LEFT JOIN patient_demo pd ON sm.service = pd.service
+ORDER BY performance_score DESC;
+
+
+
+---
+
+### 🔥 Day 20: Window Functions - Running Totals & Moving Averages
+**📆 Date:** November 27, 2025  
+**⏱️ Time Invested:** 2 hours  
+**📂 File:** [Day20 SQL Challenge.sql](https://github.com/NihalMishra01/21-Days-SQL-Challenge/blob/main/Day20%20SQL%20Challenge.sql)
+
+#### 📚 Topics Learned
+✓ Running totals with SUM() OVER
+✓ Moving averages with ROWS PRECEDING
+✓ Cumulative calculations
+✓ Window frames (ROWS BETWEEN)
+✓ PARTITION BY for grouped windows
+✓ Time-series trend analysis
+✓ Comparing current vs average values
+
+#### 🏥 Practice Dataset: Hospital Management System
+
+**Tables Used:**
+1. **`services_weekly`** - Weekly hospital service analytics
+
+#### ✅ Problems Solved (4/4)
+
+| # | Problem | Concept | Status |
+|---|---------|---------|--------|
+| Q1 | Running total of patients by week per service | SUM() OVER with PARTITION | ✅ |
+| Q2 | 4-week moving average of satisfaction | AVG() with ROWS PRECEDING | ✅ |
+| Q3 | Cumulative patient refusals across all services | SUM(SUM()) OVER | ✅ |
+| Q4 | Trend analysis with multiple window functions | Complex window query | ✅ |
+
+#### 💡 Key Takeaways
+
+> **"Window functions enable trend analysis and running calculations without losing row-level detail."**
+
+- SUM() OVER creates running totals while preserving all rows
+- ROWS N PRECEDING defines moving window size
+- PARTITION BY creates separate windows per group
+- Window functions don't reduce rows like GROUP BY does
+- Essential for time-series analysis and trends
+- Combining multiple window functions reveals complex patterns
+
+#### 📸 Code Snippet
+
+-- Daily Challenge Question
+-- Comprehensive trend analysis (weeks 10-20)
+SELECT
+service,
+week,
+patients_admitted,
+SUM(patients_admitted) OVER (PARTITION BY service ORDER BY week) AS running_total,
+ROUND(AVG(patient_satisfaction) OVER (PARTITION BY service ORDER BY week ROWS 2 PRECEDING), 2) AS moving_avg_3week,
+patients_admitted - AVG(patients_admitted) OVER (PARTITION BY service) AS diff_from_service_avg
+FROM services_weekly
+WHERE week BETWEEN 10 AND 20
+ORDER BY service, week;
+
+
+---
+
+### 🔥 Day 19: RANK & Window Functions
+**📆 Date:** November 27, 2025  
+**⏱️ Time Invested:** 2 hours  
+**📂 File:** [Day19 SQL Challenge.sql](https://github.com/NihalMishra01/21-Days-SQL-Challenge/blob/main/Day19%20SQL%20Challenge.sql)
+
+#### 📚 Topics Learned
+✓ RANK() window function
+✓ ROW_NUMBER() for sequential numbering
+✓ PARTITION BY for grouped ranking
+✓ ORDER BY within window functions
+✓ Top N per group with CTEs
+✓ Ranking vs row numbering differences
+✓ Window functions with aggregates
+
+#### 🏥 Practice Dataset: Hospital Management System
+
+**Tables Used:**
+1. **`patient`** - Patient demographics and service records
+2. **`staff`** - Hospital staff information
+3. **`services_weekly`** - Weekly hospital service analytics
+
+#### ✅ Problems Solved (4/4)
+
+| # | Problem | Concept | Status |
+|---|---------|---------|--------|
+| Q1 | Rank patients by satisfaction within service | RANK() with PARTITION BY | ✅ |
+| Q2 | Assign row numbers to staff by name | ROW_NUMBER() | ✅ |
+| Q3 | Rank services by total patients | RANK() with aggregates | ✅ |
+| Q4 | Top 3 weeks per service by satisfaction | CTE with RANK() filtering | ✅ |
+
+#### 💡 Key Takeaways
+
+> **"Window functions enable ranking and analysis without grouping, preserving row-level detail."**
+
+- RANK() assigns same rank to ties, skips next rank
+- ROW_NUMBER() always assigns unique sequential numbers
+- PARTITION BY creates separate rankings per group
+- Combining CTEs with window functions enables top-N-per-group queries
+- Window functions essential for leaderboards and rankings
+- ORDER BY in window function is separate from query ORDER BY
+
+#### 📸 Code Snippet
+
+-- Daily Challenge Question
+-- Top 3 weeks per service by satisfaction
+WITH ranked_weeks AS (
+SELECT
+service,
+week,
+patient_satisfaction,
+patients_admitted,
+RANK() OVER (
+PARTITION BY service
+ORDER BY patient_satisfaction DESC
+) AS satisfaction_rank
+FROM services_weekly
+)
+SELECT
+service,
+week,
+patient_satisfaction,
+patients_admitted,
+satisfaction_rank
+FROM ranked_weeks
+WHERE satisfaction_rank <= 3
+ORDER BY service, satisfaction_rank;
+
+
+---
+
+### 🔥 Day 18: UNION & UNION ALL - Merging Result Sets
+**📆 Date:** November 27, 2025  
+**⏱️ Time Invested:** 2 hours  
+**📂 File:** [Day18 SQL Challenge.sql](https://github.com/NihalMishra01/21-Days-SQL-Challenge/blob/main/Day18%20SQL%20Challenge.sql)
+
+#### 📚 Topics Learned
+✓ UNION vs UNION ALL differences
+✓ Combining rows from multiple tables
+✓ Column alignment requirements
+✓ Creating unified views
+✓ Categorizing data with type flags
+✓ Ordering combined result sets
+✓ Performance: UNION vs UNION ALL
+
+#### 🏥 Practice Dataset: Hospital Management System
+
+**Tables Used:**
+1. **`patient`** - Patient demographics and service records
+2. **`staff`** - Hospital staff information
+3. **`services_weekly`** - Weekly hospital service analytics
+
+#### ✅ Problems Solved (4/4)
+
+| # | Problem | Concept | Status |
+|---|---------|---------|--------|
+| Q1 | Combine patient and staff names | UNION ALL with type flag | ✅ |
+| Q2 | Union of high/low satisfaction patients | UNION with categories | ✅ |
+| Q3 | Unique names across patients and staff | UNION removing duplicates | ✅ |
+| Q4 | Unified personnel list for critical services | UNION ALL with joins | ✅ |
+
+#### 💡 Key Takeaways
+
+> **"UNION merges result sets; choosing UNION vs UNION ALL controls whether duplicates are removed."**
+
+- UNION removes duplicates; UNION ALL keeps all rows (faster)
+- All SELECTs must have same number of columns in same order
+- Adding type columns helps distinguish data sources
+- UNION is great for stacking similar entities
+- ORDER BY applies to final combined result
+- UNION ALL preferred when duplicates acceptable (better performance)
+
+#### 📸 Code Snippet
+
+-- Daily Challenge Question
+-- Unified personnel list for surgery/emergency
+SELECT
+p.patient_id AS identifier,
+p.name AS full_name,
+'Patient' AS type,
+s.service
+FROM patient p
+JOIN services_weekly s ON p.service = s.service
+WHERE LOWER(s.service) IN ('surgery', 'emergency')
+
+UNION ALL
+
+SELECT
+st.staff_id AS identifier,
+st.staff_name AS full_name,
+'Staff' AS type,
+s.service
+FROM staff st
+JOIN services_weekly s ON st.service = s.service
+WHERE LOWER(s.service) IN ('surgery', 'emergency')
+ORDER BY type, service, full_name;
+
+
+---
+
+### 🔥 Day 17: CTEs & Derived Tables - Clean SQL
+**📆 Date:** November 27, 2025  
+**⏱️ Time Invested:** 2 hours  
+**📂 File:** [Day17 SQL Challenge.sql](https://github.com/NihalMishra01/21-Days-SQL-Challenge/blob/main/Day17%20SQL%20Challenge.sql)
+
+#### 📚 Topics Learned
+✓ Common Table Expressions (CTEs)
+✓ WITH clause syntax
+✓ Derived tables in FROM clause
+✓ Multiple CTEs in single query
+✓ Temporary result sets
+✓ Query organization and readability
+✓ Complex calculations with CTEs
+
+#### 🏥 Practice Dataset: Hospital Management System
+
+**Tables Used:**
+1. **`patient`** - Patient demographics and service records
+2. **`services_weekly`** - Weekly hospital service analytics
+3. **`staff`** - Hospital staff information
+
+#### ✅ Problems Solved (4/4)
+
+| # | Problem | Concept | Status |
+|---|---------|---------|--------|
+| Q1 | Patient with service average satisfaction | Derived table with JOIN | ✅ |
+| Q2 | Service statistics derived table | FROM clause subquery | ✅ |
+| Q3 | Staff with service patient counts | Derived table with aggregates | ✅ |
+| Q4 | Service performance vs average with ranking | Multiple CTEs with CASE | ✅ |
+
+#### 💡 Key Takeaways
+
+> **"CTEs make complex queries readable by breaking logic into named, reusable steps."**
+
+- CTEs defined with WITH clause before main query
+- Act as temporary named result sets
+- Can reference CTEs multiple times in same query
+- Derived tables achieve similar results inline
+- CTEs significantly improve maintainability
+- Multiple CTEs separated by commas
+- CTEs exist only for query duration
+
+#### 📸 Code Snippet
+
+-- Daily Challenge Question
+-- Service performance vs hospital average
+WITH service_summary AS (
+SELECT
+service,
+SUM(patients_admitted) AS total_patients
+FROM service_weekly
+GROUP BY service
+),
+overall_avg AS (
+SELECT AVG(patients_admitted) AS avg_patients
+FROM service_weekly
+)
+SELECT
+ss.service,
+ss.total_patients,
+ss.total_patients - oa.avg_patients AS difference_from_avg,
+CASE
+WHEN ss.total_patients > oa.avg_patients THEN 'Above Average'
+WHEN ss.total_patients = oa.avg_patients THEN 'Average'
+ELSE 'Below Average'
+END AS rank_indicator
+FROM service_summary ss, overall_avg oa
+ORDER BY ss.total_patients DESC;
+
+
+---
+
+### 🔥 Day 16: Subqueries - Queries Within Queries
+**📆 Date:** November 22, 2025  
+**⏱️ Time Invested:** 2 hours  
+**📂 File:** [Day16 SQL Challenge.sql](https://github.com/NihalMishra01/21-Days-SQL-Challenge/blob/main/Day16%20SQL%20Challenge.sql)
+
+#### 📚 Topics Learned
+✓ Subqueries in WHERE clause
+✓ Subqueries in FROM clause
+✓ Subqueries with IN operator
+✓ Comparing against aggregate results
+✓ Nested subqueries (multi-level)
+✓ Scalar subqueries (single value)
+✓ Overall vs group-level comparisons
+
+#### 🏥 Practice Dataset: Hospital Management System
+
+**Tables Used:**
+1. **`patients`** - Patient demographics and service records
+2. **`staff`** - Hospital staff information
+3. **`service_weekly`** - Weekly hospital service analytics
+
+#### ✅ Problems Solved (4/4)
+
+| # | Problem | Concept | Status |
+|---|---------|---------|--------|
+| Q1 | Patients in services with above-average staff | Subquery with COUNT | ✅ |
+| Q2 | Staff in services with low satisfaction weeks | Subquery with EXISTS | ✅ |
+| Q3 | Patients from high-volume services (>1000 admits) | Subquery with SUM | ✅ |
+| Q4 | Patients in underperforming services | Nested subqueries with HAVING | ✅ |
+
+#### 💡 Key Takeaways
+
+> **"Subqueries enable multi-step logic: calculate something, then use that result to filter or compare."**
+
+- Subqueries are queries nested inside another query
+- Can appear in WHERE, FROM, HAVING, or SELECT clauses
+- IN operator commonly used with subquery results
+- Scalar subqueries return single value for comparisons
+- Nested subqueries allow complex multi-level logic
+- HAVING with subqueries compares groups to overall metrics
+- Essential for comparing records against calculated benchmarks
+
+#### 📸 Code Snippet
+
+-- Daily Challenge Question
+-- Patients in underperforming services
+SELECT
+p.patient_id,
+p.name,
+p.service,
+p.satisfaction
+FROM patients p
+WHERE p.service IN (
+SELECT sw.service
+FROM service_weekly sw
+WHERE sw.patients_refused > 0
+GROUP BY sw.service
+HAVING AVG(sw.patient_satisfaction) < (
+SELECT AVG(patient_satisfaction)
+FROM service_weekly
+)
+);
+
+
+---
+
+### 🔥 Day 15: Multi-Table JOINs - Complex Queries
+**📆 Date:** November 19, 2025  
+**⏱️ Time Invested:** 2 hours  
+**📂 File:** [Day15 SQL Challenge.sql](https://github.com/NihalMishra01/21-Days-SQL-Challenge/blob/main/Day15%20SQL%20Challenge.sql)
+
+#### 📚 Topics Learned
+✓ Joining 3+ tables in single query
+✓ Multiple JOIN conditions
+✓ Combining INNER and LEFT JOINs
+✓ Table relationship chains
+✓ Complex aggregate calculations
+✓ DISTINCT with COUNT in multi-table joins
+✓ Comprehensive business reporting
+
+#### 🏥 Practice Dataset: Hospital Management System
+
+**Tables Used:**
+1. **`patients`** - Patient demographics and service records
+2. **`staff`** - Hospital staff information
+3. **`staff_schedule`** - Weekly staff attendance tracking
+4. **`service_weekly`** - Weekly hospital service analytics
+
+#### ✅ Problems Solved (4/4)
+
+| # | Problem | Concept | Status |
+|---|---------|---------|--------|
+| Q1 | Patient-staff-schedule comprehensive view | 3-table JOIN | ✅ |
+| Q2 | Service analysis with staff and schedules | 3-table JOIN with aggregates | ✅ |
+| Q3 | Patient admissions with staff information | Multi-table reporting | ✅ |
+| Q4 | Week 20 comprehensive service analysis | Complex multi-table query | ✅ |
+
+#### 💡 Key Takeaways
+
+> **"Multi-table JOINs mirror real-world complexity - one query can tell a complete business story."**
+
+- JOIN multiple tables by chaining
+- Each JOIN needs its own ON condition
+- Can mix INNER JOIN and LEFT JOIN in same query
+- Table order matters for performance and logic
+- COUNT(DISTINCT column) prevents duplicate counting
+- Additional WHERE conditions filter after all joins
+- Real enterprise queries often join 5-10+ tables
+
+#### 📸 Code Snippet
+
+-- Daily Challenge Question
+-- Comprehensive service analysis for Week 20
+SELECT
+sw.service,
+SUM(sw.patients_admitted) AS total_admitted,
+SUM(sw.patients_refused) AS total_refused,
+AVG(sw.patient_satisfaction) AS avg_satisfaction,
+COUNT(DISTINCT s.staff_id) AS staff_assigned,
+COUNT(ss.present) AS staff_present_count
+FROM service_weekly sw
+LEFT JOIN staff s ON sw.service = s.service
+LEFT JOIN staff_schedule ss
+ON s.staff_id = ss.staff_id AND ss.week = 20
+WHERE sw.week = 20
+GROUP BY sw.service
+ORDER BY total_admitted DESC;
+
+
+---
+
+### 🔥 Day 14: LEFT JOIN - Including All Records
+**📆 Date:** November 18, 2025  
+**⏱️ Time Invested:** 2 hours  
+**📂 File:** [Day14 SQL Challenge.sql](https://github.com/NihalMishra01/21-Days-SQL-Challenge/blob/main/Day14%20SQL%20Challenge.sql)
+
+#### 📚 Topics Learned
+✓ LEFT JOIN (LEFT OUTER JOIN) syntax
+✓ Including all rows from left table
+✓ NULL values in joined results
+✓ Finding unmatched records
+✓ LEFT JOIN with aggregates
+✓ Difference between INNER and LEFT JOIN
+✓ Utilization and gap analysis
+
+#### 🏥 Practice Dataset: Hospital Management System
+
+**Tables Used:**
+1. **`staff`** - Hospital staff information
+2. **`staff_schedule`** - Weekly staff attendance tracking
+3. **`patients`** - Patient demographics and service records
+4. **`service_weekly`** - Weekly hospital service analytics
+
+#### ✅ Problems Solved (4/4)
+
+| # | Problem | Concept | Status |
+|---|---------|---------|--------|
+| Q1 | All staff with schedule info (include no schedule) | LEFT JOIN basics | ✅ |
+| Q2 | All services with staff (show unassigned) | LEFT JOIN reversed | ✅ |
+| Q3 | All patients with service statistics | LEFT JOIN with NULLs | ✅ |
+| Q4 | Staff utilization report with attendance count | LEFT JOIN with GROUP BY | ✅ |
+
+#### 💡 Key Takeaways
+
+> **"LEFT JOIN returns ALL rows from the left table, plus matching rows from the right - revealing what's missing."**
+
+- LEFT JOIN includes all rows from left table, even without matches
+- Unmatched rows show NULL for right table columns
+- Essential for finding gaps, missing data, or unused resources
+- LEFT OUTER JOIN and LEFT JOIN are identical
+- Helps identify: inactive users, unassigned tasks, missing relationships
+- Combines with GROUP BY to count occurrences (including zeros)
+
+#### 📸 Code Snippet
+
+-- Daily Challenge Question
+-- Staff utilization report (include staff with no schedules)
+SELECT
+s.staff_id,
+s.staff_name,
+s.role,
+s.service,
+COUNT(ss.week) AS weeks_present
+FROM staff s
+LEFT JOIN staff_schedule ss
+ON s.staff_id = ss.staff_id
+GROUP BY s.staff_id, s.staff_name, s.role, s.service
+ORDER BY weeks_present DESC;
+
+---
+
+### 🔥 Day 13: INNER JOIN - Combining Tables
+**📆 Date:** November 17, 2025  
+**⏱️ Time Invested:** 2 hours  
+**📂 File:** [Day13 SQL Challenge.sql](https://github.com/NihalMishra01/21-Days-SQL-Challenge/blob/main/Day13%20SQL%20Challenge.sql)
+
+#### 📚 Topics Learned
+✓ INNER JOIN syntax and fundamentals
+✓ Joining two tables on related columns
+✓ Understanding table relationships
+✓ ON clause for join conditions
+✓ Table aliases for cleaner queries
+✓ Combining INNER JOIN with WHERE
+✓ Multi-table data retrieval
+
+#### 🏥 Practice Dataset: Hospital Management System
+
+**Tables Used:**
+1. **`patients`** - Patient demographics and service records
+2. **`staff`** - Hospital staff information
+3. **`service_weekly`** - Weekly hospital service analytics
+
+#### ✅ Problems Solved (4/4)
+
+| # | Problem | Concept | Status |
+|---|---------|---------|--------|
+| Q1 | Join patients with their service details | Basic INNER JOIN | ✅ |
+| Q2 | Get patient names with assigned staff | JOIN with multiple columns | ✅ |
+| Q3 | Combine patient and service performance data | JOIN with aggregates | ✅ |
+| Q4 | Staff roster with patient counts per service | INNER JOIN with GROUP BY | ✅ |
+
+#### 💡 Key Takeaways
+
+> **"INNER JOIN connects related data across tables, returning only matching rows from both sides."**
+
+- INNER JOIN combines rows based on related column
+- Only returns rows that have matches in BOTH tables
+- ON clause specifies the join condition
+- Table aliases make queries more readable
+- Non-matching rows are automatically excluded
+- Can combine with WHERE, GROUP BY, ORDER BY
+- Foundation for understanding all other JOIN types
+
+#### 📸 Code Snippet
+
+-- Daily Challenge Question
+-- Get patient names with assigned staff members
+SELECT
+p.patient_id,
+p.name AS patient_name,
+p.service,
+s.staff_name,
+s.role
+FROM patients p
+INNER JOIN staff s
+ON p.service = s.service
+WHERE p.age > 40
+ORDER BY p.service;
+
+
+---
+
 ### 🔥 Day 12: NULL Values and Data Integrity
 **📆 Date:** November 15, 2025  
 **⏱️ Time Invested:** 2 hours  
@@ -73,7 +684,6 @@ I'm undertaking the **21-Days SQL Challenge** organized by [**Indian Data Club**
 ✓ Counting NULL vs non-NULL values
 ✓ NULL in aggregate functions
 ✓ Data quality validation
-
 
 #### 🏥 Practice Dataset: Hospital Management System
 
@@ -96,29 +706,31 @@ I'm undertaking the **21-Days SQL Challenge** organized by [**Indian Data Club**
 > **"NULL represents missing or unknown data - handling it properly is essential for data integrity."**
 
 - NULL is not equal to zero, empty string, or false
-- Always use IS NULL/IS NOT NULL, never = NULL or != NULL
+- Always use IS NULL/IS NOT NULL, never = NULL
 - COALESCE() returns first non-NULL value from a list
 - NULL in calculations makes entire result NULL
 - COUNT(*) counts NULLs, COUNT(column) doesn't
-- WHERE filters can specifically target or exclude NULLs
 - Proper NULL handling prevents data quality issues
 
 #### 📸 Code Snippet
 
-sql
 -- Daily Challenge Question
 -- Handle missing departure dates with COALESCE
-SELECT 
-    patient_id,
-    name,
-    arrival_date,
-    COALESCE(departure_date, CURRENT_DATE) AS effective_departure,
-    CASE 
-        WHEN departure_date IS NULL THEN 'Currently Admitted'
-        ELSE 'Discharged'
-    END AS status
+SELECT
+patient_id,
+name,
+arrival_date,
+COALESCE(departure_date, CURRENT_DATE) AS effective_departure,
+CASE
+WHEN departure_date IS NULL THEN 'Currently Admitted'
+ELSE 'Discharged'
+END AS status
 FROM patients
 WHERE arrival_date IS NOT NULL;
+
+
+---
+
 ### 🔥 Day 11: DISTINCT - Finding Unique Values
 **📆 Date:** November 13, 2025  
 **⏱️ Time Invested:** 2 hours  
@@ -132,7 +744,6 @@ WHERE arrival_date IS NOT NULL;
 ✓ NULL value filtering
 ✓ Combining DISTINCT with WHERE
 ✓ GROUP BY for counting occurrences
-
 
 #### 🏥 Practice Dataset: Hospital Management System
 
@@ -159,9 +770,24 @@ WHERE arrival_date IS NOT NULL;
 - DISTINCT evaluates entire row when used with multiple columns
 - NULL values are treated as distinct values
 - GROUP BY provides more flexibility than DISTINCT for counting
-- WHERE filters before DISTINCT is applied
 - Essential for data quality analysis and deduplication
 
+#### 📸 Code Snippet
+
+-- Daily Challenge Question
+-- Unique service-event combinations with counts
+SELECT
+service,
+event,
+COUNT(*) AS occurrence_count
+FROM service_weekly
+WHERE event IS NOT NULL
+AND event != 'None'
+GROUP BY service, event
+ORDER BY occurrence_count DESC;
+
+
+---
 
 ### 🔥 Day 10: Conditional Logic with CASE Statements
 **📆 Date:** November 12, 2025  
@@ -199,11 +825,10 @@ WHERE arrival_date IS NOT NULL;
 
 - CASE evaluates conditions sequentially, returns first match
 - ELSE clause provides default value when no conditions match
-- CASE can be used with aggregate functions (AVG, SUM, etc.)
+- CASE can be used with aggregate functions
 - Multiple CASE statements can appear in single SELECT
 - BETWEEN simplifies range-based categorization
-- IN operator makes multi-value checks cleaner
-- CASE is essential for creating business reports and dashboards
+- CASE is essential for creating business reports
 
 #### 📸 Code Snippet
 
@@ -225,6 +850,7 @@ ORDER BY avg_satisfaction DESC;
 
 
 ---
+
 ### 🔥 Day 9: Date Functions & Time-Based Analytics
 **📆 Date:** November 11, 2025  
 **⏱️ Time Invested:** 2 hours  
@@ -238,7 +864,6 @@ ORDER BY avg_satisfaction DESC;
 ✓ Date difference calculations
 ✓ Time-based filtering
 ✓ Combining dates with aggregates
-
 
 #### 🏥 Practice Dataset: Hospital Management System
 
@@ -258,13 +883,11 @@ ORDER BY avg_satisfaction DESC;
 
 > **"Date functions transform timestamps into actionable time-based insights."**
 
-- EXTRACT() pulls specific date parts (YEAR, MONTH, DAY, etc.)
+- EXTRACT() pulls specific date parts (YEAR, MONTH, DAY)
 - Date arithmetic: subtraction gives day difference as integer
 - COALESCE() handles NULL dates by providing fallback values
 - CURRENT_DATE returns today's date for dynamic calculations
-- ::numeric casting ensures proper decimal handling
 - Time-based analytics reveal seasonal patterns and trends
-- Date functions are essential for business intelligence
 
 #### 📸 Code Snippet
 
@@ -280,9 +903,8 @@ GROUP BY service
 HAVING AVG((COALESCE(departure_date, CURRENT_DATE) - arrival_date)) > 7
 ORDER BY avg_length_of_stay_days DESC;
 
-
-
 ---
+
 ### 🔥 Day 8: String Functions & Data Transformation
 **📆 Date:** November 10, 2025  
 **⏱️ Time Invested:** 2 hours  
@@ -318,11 +940,9 @@ ORDER BY avg_length_of_stay_days DESC;
 
 - UPPER() and LOWER() standardize text case for comparisons
 - LENGTH() calculates character count (useful for validation)
-- CONCAT() combines multiple columns or strings with separators
-- CASE statement provides conditional logic within queries
-- String functions can be combined in single SELECT statement
-- WHERE clause can filter based on string function results
-- These functions are essential for data cleaning and formatting
+- CONCAT() combines multiple columns or strings
+- String functions can be combined in single SELECT
+- Essential for data cleaning and formatting
 
 #### 📸 Code Snippet
 
@@ -343,6 +963,7 @@ WHERE LENGTH(name) > 10;
 
 
 ---
+
 ### 🔥 Day 7: Filtering Grouped Data with HAVING
 **📆 Date:** November 9, 2025  
 **⏱️ Time Invested:** 2 hours  
@@ -356,7 +977,6 @@ WHERE LENGTH(name) > 10;
 ✓ Combining SUM(), AVG(), COUNT() in HAVING
 ✓ Complex business logic filtering
 ✓ Post-aggregation filtering
-
 
 #### 🏥 Practice Dataset: Hospital Management System
 
@@ -380,10 +1000,9 @@ WHERE LENGTH(name) > 10;
 
 - HAVING is used with GROUP BY to filter aggregated results
 - WHERE cannot be used with aggregate functions
-- Multiple conditions in HAVING use AND/OR logical operators
+- Multiple conditions in HAVING use AND/OR operators
 - HAVING executes after GROUP BY, WHERE executes before
-- Both WHERE and HAVING can be used together in same query
-- HAVING enables complex business logic on aggregated data
+- Both WHERE and HAVING can be used together
 
 #### 📸 Code Snippet
 
@@ -401,6 +1020,7 @@ AND AVG(patient_satisfaction) < 80;
 
 
 ---
+
 ### 🔥 Day 6: Advanced GROUP BY & Calculations
 **📆 Date:** November 8, 2025  
 **⏱️ Time Invested:** 2 hours  
@@ -414,8 +1034,7 @@ AND AVG(patient_satisfaction) < 80;
 ✓ Percentage calculations in SQL
 ✓ ROUND() for decimal precision
 ✓ Multi-column aggregation
-✓ Business metrics calculation (admission rate)
-
+✓ Business metrics calculation
 
 #### 🏥 Practice Dataset: Hospital Management System
 
@@ -438,11 +1057,10 @@ AND AVG(patient_satisfaction) < 80;
 > **"GROUP BY transforms data into business intelligence by revealing patterns and trends."**
 
 - GROUP BY creates categories for aggregate calculations
-- Multiple aggregate functions (SUM, COUNT) can be combined in one query
-- Percentage calculations require careful handling: (part / total) * 100
-- ROUND() ensures readable decimal precision for business metrics
-- ORDER BY with aggregates helps identify top/bottom performers
-- 100.0 in calculations forces float division for accurate percentages
+- Multiple aggregate functions can be combined
+- Percentage calculations require careful handling
+- ROUND() ensures readable decimal precision
+- ORDER BY with aggregates identifies top/bottom performers
 
 #### 📸 Code Snippet
 
@@ -462,6 +1080,7 @@ ORDER BY admission_rate DESC;
 
 
 ---
+
 ### 🔥 Day 5: Aggregate Functions & Data Summarization
 **📆 Date:** November 7, 2025  
 **⏱️ Time Invested:** 2 hours  
@@ -475,8 +1094,6 @@ ORDER BY admission_rate DESC;
 ✓ ROUND() function for decimal precision
 ✓ GROUP BY clause for categorization
 ✓ Combining aggregate functions
-
-text
 
 #### 🏥 Practice Dataset: Hospital Management System
 
@@ -506,10 +1123,9 @@ text
 - MIN() and MAX() work with numbers, dates, and text
 - ROUND() controls decimal precision for cleaner results
 - GROUP BY categorizes data before aggregation
-- Multiple aggregate functions can be used in a single query
-- WHERE filters before aggregation, HAVING filters after
+- Multiple aggregate functions can be used in one query
 
-
+#### 📸 Code Snippet
 
 -- Daily Challenge Question
 -- Average satisfaction score for each service
@@ -518,8 +1134,8 @@ FROM patient
 GROUP BY service;
 
 
-
 ---
+
 ### 🔥 Day 4: Pagination with LIMIT & OFFSET
 **📆 Date:** November 6, 2025  
 **⏱️ Time Invested:** 2 hours  
@@ -533,8 +1149,6 @@ GROUP BY service;
 ✓ Top N queries with LIMIT
 ✓ MIN() aggregate function
 ✓ Result set navigation
-
-text
 
 #### 🏥 Practice Dataset: Hospital Management System
 
@@ -564,11 +1178,22 @@ text
 > **"LIMIT and OFFSET are essential for building efficient, user-friendly paginated applications."**
 
 - LIMIT controls the number of rows returned
-- OFFSET skips a specified number of rows before returning results
+- OFFSET skips a specified number of rows
 - Combining ORDER BY + LIMIT + OFFSET enables powerful pagination
 - LIMIT without OFFSET starts from the first row
-- Performance: OFFSET can be slow on large datasets (use cursor-based pagination for better performance)
-- MIN() function returns the smallest value in a column
+- Performance: OFFSET can be slow on large datasets
+
+#### 📸 Code Snippet
+
+-- Daily Challenge Question
+-- Get 3rd to 7th highest patient satisfaction scores
+SELECT patient_id, name, service, satisfaction
+FROM patients
+ORDER BY satisfaction DESC
+LIMIT 5 OFFSET 2;
+
+
+---
 
 ### 🔥 Day 3: Sorting Data with ORDER BY
 **📆 Date:** November 5, 2025  
@@ -583,7 +1208,6 @@ text
 ✓ Combining ORDER BY with LIMIT
 ✓ Sorting numeric and text data
 ✓ Query result organization
-
 
 #### 🏥 Practice Dataset: Hospital Management System
 
@@ -608,10 +1232,10 @@ text
 - ORDER BY defaults to ASC if not specified
 - Multiple column sorting applies in left-to-right priority
 - Combining ORDER BY with LIMIT extracts top/bottom records efficiently
-- Sorting text data uses alphabetical order (case-sensitive in some databases)
-- Performance impact increases with larger datasets - indexing helps
+- Sorting text data uses alphabetical order
+- Performance impact increases with larger datasets
 
-
+#### 📸 Code Snippet
 
 -- Daily Challenge Question
 -- Top 5 weeks with highest patient refusals
@@ -619,7 +1243,6 @@ SELECT week, service, patients_refused, patients_request
 FROM service_weekly
 ORDER BY patients_refused DESC
 LIMIT 5;
-
 
 
 ---
@@ -638,19 +1261,13 @@ LIMIT 5;
 ✓ LIKE operator with wildcards (%)
 ✓ ORDER BY for sorting results
 
-
-
 #### 🏥 Practice Dataset: Hospital Management System
 
 **Tables Created:**
 1. **`patients`** - Patient demographics and service records
-   - Columns: patient_id, name, age, arrival_date, departure_date, service, satisfaction
 2. **`service_weekly`** - Weekly hospital service analytics
-   - Columns: week, month, service, available_beds, patients_request, patients_admitted, patients_refused, patient_satisfaction, staff_morale, event
 3. **`staff`** - Hospital staff information
-   - Columns: staff_id, staff_name, role, service
 4. **`staff_schedule`** - Weekly staff attendance tracking
-   - Columns: week, staff_id, staff_name, role, service, present
 
 #### ✅ Problems Solved (9/9)
 
@@ -674,7 +1291,7 @@ LIMIT 5;
 - OR operator requires at least one condition to be true
 - IN operator is cleaner than multiple OR conditions
 - BETWEEN is inclusive of both boundary values
-- LIKE with '%' is powerful but can impact performance on large datasets
+- LIKE with '%' is powerful but can impact performance
 
 #### 📸 Code Snippet
 
@@ -700,15 +1317,11 @@ WHERE name LIKE 'A%' AND service != 'emergency';
 ✓ DISTINCT for unique values
 ✓ LIMIT for pagination
 
-
-
 #### 🏥 Practice Dataset: Hospital Management System
 
 **Tables Created:**
 1. **`patients`** - Patient demographics and service records
-   - Columns: patient_id, name, age, arrival_date, departure_date, service, satisfaction
 2. **`service_weekly`** - Weekly hospital service analytics
-   - Columns: week, month, service, available_beds, patients_request, patients_admitted, patients_refused, patient_satisfaction, staff_morale, event
 
 #### ✅ Problems Solved (7/7)
 
@@ -738,22 +1351,24 @@ WHERE name LIKE 'A%' AND service != 'emergency';
 SELECT DISTINCT(service) FROM service_weekly;
 
 
-
 ---
+
 ### 📊 Challenge Statistics
 
 <div align="center">
 
-| Metric | Count |
-|--------|-------|
-| 📝 Days Completed | 12 / 21 |
-| ✅ Problems Solved | 68 |
-| 📁 Files Uploaded | 12 |
-| ⏱️ Total Hours | 24 |
-| 🔥 Streak | 12 days |
+| Metric | Final Count |
+|--------|-------------|
+| 📝 Days Completed | 21 / 21 |
+| ✅ Problems Solved | 100+ |
+| 📁 Files Uploaded | 21 |
+| ⏱️ Total Hours | 42 |
+| 🔥 Final Streak | 21 days |
 
 **Progress Bar:**
-[████████████░░░░░░░░] 57.14% Complete
+[████████████████████] 100% Complete
+
+**🎉 CHALLENGE COMPLETED! 🎉**
 
 </div>
 
@@ -776,25 +1391,35 @@ SELECT DISTINCT(service) FROM service_weekly;
 | File/Folder | Description |
 |-------------|-------------|
 | 📄 README.md | Complete project documentation |
-| 📜 Day1 SQL Challenge.sql | Day 1 solutions and code |
-| 📜 Day2 SQL Challenge.sql | Day 2 solutions and code |
-| 📜 Day3 SQL Challenge.sql | Day 3 solutions and code |
-| 📜 Day4 SQL Challenge.sql | Day 4 solutions and code |
-| 📜 Day5 SQL Challenge.sql | Day 5 solutions and code |
-| 📜 Day6 SQL Challenge.sql | Day 6 solutions and code |
-| 📜 Day7 SQL Challenge.sql | Day 7 solutions and code |
-| 📜 Day8 SQL Challenge.sql | Day 8 solutions and code |
-| 📜 Day9 SQL Challenge.sql | Day 9 solutions and code |
-| 📜 Day10 SQL Challenge.sql | Day 10 solutions and code |
-| 📜 Day11 SQL Challenge.sql | Day 11 solutions and code |
-| 📜 Day12 SQL Challenge.sql | Day 12 solutions and code |
-| ... | Days 13-21 solutions |
-| 📜 Day21 SQL Challenge.sql | Final day challenge |
+| 📜 Day1-21 SQL Challenge.sql | All 21 days of solutions |
 | 📊 datasets/ | Practice datasets (CSV files) |
+
+## 🏆 Skills Acquired
+
+**Foundation (Days 1-7):**
+- ✅ SELECT, WHERE, ORDER BY, LIMIT/OFFSET
+- ✅ DISTINCT, aggregate functions (COUNT, SUM, AVG, MIN, MAX)
+- ✅ GROUP BY, HAVING
+- ✅ Logical operators (AND, OR, NOT, IN, BETWEEN, LIKE)
+
+**Intermediate (Days 8-14):**
+- ✅ String functions (UPPER, LOWER, CONCAT, LENGTH)
+- ✅ Date functions (EXTRACT, date arithmetic, COALESCE)
+- ✅ CASE statements for conditional logic
+- ✅ NULL handling (IS NULL, IS NOT NULL, COALESCE)
+- ✅ JOINs (INNER, LEFT, multi-table)
+
+**Advanced (Days 15-21):**
+- ✅ Multi-table JOINs (3+ tables)
+- ✅ Subqueries (WHERE, FROM, nested)
+- ✅ Common Table Expressions (CTEs)
+- ✅ UNION and UNION ALL
+- ✅ Window functions (RANK, ROW_NUMBER, running totals, moving averages)
+- ✅ Complex dashboard queries
 
 ## 🌟 Daily LinkedIn Updates
 
-I'm documenting this journey publicly on LinkedIn! Follow along for:
+I documented this entire journey publicly on LinkedIn with:
 - 📝 Daily code snippets and solutions
 - 💡 SQL tips and best practices
 - 🤔 Problem-solving approaches
@@ -819,33 +1444,40 @@ I'm documenting this journey publicly on LinkedIn! Follow along for:
 </div>
 
 **Open to:**
-- 💬 SQL discussions and doubt clearing
+- 💬 SQL discussions and knowledge sharing
 - 🤝 Collaboration on data projects
-- 📢 Feedback on my solutions
+- 💼 Data Analyst / Data Engineer opportunities
 - 🌐 Networking with data professionals
 
 ---
 
-## 💪 Motivation
+## 💪 Final Thoughts
 
-> *"The expert in anything was once a beginner. The key is to start and stay consistent."*
+> *"21 days of consistent practice transforms a beginner into a confident SQL developer."*
 
-**Why I'm doing this publicly:**
-- 📢 Accountability through transparency
-- 🌱 Learning through teaching (Feynman Technique)
-- 🤝 Building a learning community
-- 💼 Showcasing commitment to employers
+**What I Learned:**
+- 📢 Consistency compounds: Daily practice builds muscle memory
+- 🌱 Learning in public creates accountability
+- 🤝 Community support accelerates growth
+- 💼 Portfolio projects open doors to opportunities
+
+**From Day 1 to Day 21:**
+- Started with basic SELECT statements
+- Ended with production-grade dashboard queries
+- Built skills employers actually need
+- Created a portfolio showcasing real work
 
 ---
 
 <div align="center">
 
-### ⭐ If you find this helpful, consider giving it a star!
+### ⭐ If you found this helpful, please give it a star!
 
-**Let's master SQL together, one query at a time!** 
+**21 Days. 100+ Problems. 1 Complete SQL Journey.** 
 
 ![Visitor Count](https://visitor-badge.laobi.icu/badge?page_id=NihalMishra01.21-Days-SQL-Challenge)
 
-**Day 12 Complete ✅ | 9 More to Go! 🚀**
+**🎉 Challenge Complete! From Beginner to Advanced SQL! 🎉**
+
 
 </div>
